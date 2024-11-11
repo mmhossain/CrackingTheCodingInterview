@@ -8,12 +8,14 @@ public class ArraysAnsStringsTests
     private UniqueChars _uniqueCharsChecker;
     private PermutationChecker _permutationChecker;
     private Urlify _urlify;
+    private PalindromePermutation _palindromePermutation;
 
     public ArraysAnsStringsTests()
     {
         _uniqueCharsChecker = new UniqueChars();    
         _permutationChecker = new PermutationChecker();
         _urlify = new Urlify();
+        _palindromePermutation = new PalindromePermutation();
     }
 
     [TestMethod]
@@ -93,5 +95,44 @@ public class ArraysAnsStringsTests
 
         // Assert
         Assert.AreEqual("Mr%20John%20Smith", string.Join("", str));
+    }
+
+    [TestMethod]
+    public void IsPermutationOfPalindrome_ApproachITest()
+    {
+        // Arrange
+        string phrase = "Tact Coa";
+
+        // Act
+        bool isPalindomePermutation = _palindromePermutation.IsPermutationOfPalindrome_ApproachI(phrase);
+
+        // Assert
+        Assert.IsTrue(isPalindomePermutation);
+    }
+
+    [TestMethod]
+    public void IsPermutationOfPalindrome_ApproachIITest()
+    {
+        // Arrange
+        string phrase = "Tact Coa";
+
+        // Act
+        bool isPalindomePermutation = _palindromePermutation.IsPermutationOfPalindrome_ApproachII(phrase);
+
+        // Assert
+        Assert.IsTrue(isPalindomePermutation);
+    }
+
+    [TestMethod]
+    public void IsPermutationOfPalindrome_ApproachIIITest()
+    {
+        // Arrange
+        string phrase = "Tact Coa";
+
+        // Act
+        bool isPalindomePermutation = _palindromePermutation.IsPermutationOfPalindrome_ApproachIII(phrase);
+
+        // Assert
+        Assert.IsTrue(isPalindomePermutation);
     }
 }
