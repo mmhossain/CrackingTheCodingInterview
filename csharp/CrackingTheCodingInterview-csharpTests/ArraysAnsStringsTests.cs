@@ -9,6 +9,7 @@ public class ArraysAnsStringsTests
     private PermutationChecker _permutationChecker;
     private Urlify _urlify;
     private PalindromePermutation _palindromePermutation;
+    private OneAway _oneAway;
 
     public ArraysAnsStringsTests()
     {
@@ -16,6 +17,7 @@ public class ArraysAnsStringsTests
         _permutationChecker = new PermutationChecker();
         _urlify = new Urlify();
         _palindromePermutation = new PalindromePermutation();
+        _oneAway = new OneAway();
     }
 
     [TestMethod]
@@ -134,5 +136,31 @@ public class ArraysAnsStringsTests
 
         // Assert
         Assert.IsTrue(isPalindomePermutation);
+    }
+
+    [TestMethod]
+    public void IsOneEditAway_ApproachITest()
+    {
+        // Arrange
+        string first = "apple", second = "aple";
+
+        // Act
+        bool isOneEditAway = _oneAway.IsOneEditAway_ApproachI(first, second);
+
+        // Assert
+        Assert.IsTrue(isOneEditAway);
+    }
+
+    [TestMethod]
+    public void IsOneEditAway_ApproachIITest()
+    {
+        // Arrange
+        string first = "apple", second = "aple";
+
+        // Act
+        bool isOneEditAway = _oneAway.IsOneEditAway_ApproachII(first, second);
+
+        // Assert
+        Assert.IsTrue(isOneEditAway);
     }
 }
