@@ -10,6 +10,7 @@ public class ArraysAnsStringsTests
     private Urlify _urlify;
     private PalindromePermutation _palindromePermutation;
     private OneAway _oneAway;
+    private StringCompressor _stringCompressor;
 
     public ArraysAnsStringsTests()
     {
@@ -18,6 +19,7 @@ public class ArraysAnsStringsTests
         _urlify = new Urlify();
         _palindromePermutation = new PalindromePermutation();
         _oneAway = new OneAway();
+        _stringCompressor = new StringCompressor();
     }
 
     [TestMethod]
@@ -162,5 +164,44 @@ public class ArraysAnsStringsTests
 
         // Assert
         Assert.IsTrue(isOneEditAway);
+    }
+
+    [TestMethod]
+    public void CompressBad_ApproachITest()
+    {
+        // Arrange
+        string str = "aabcccccaaa";
+
+        // Act
+        string compressedString = _stringCompressor.CompressBad_ApproachI(str);
+
+        // Assert
+        Assert.AreEqual("a2b1c5a3", compressedString);
+    }
+
+    [TestMethod]
+    public void CompressBad_ApproachIITest()
+    {
+        // Arrange
+        string str = "aabcccccaaa";
+
+        // Act
+        string compressedString = _stringCompressor.CompressBad_ApproachII(str);
+
+        // Assert
+        Assert.AreEqual("a2b1c5a3", compressedString);
+    }
+
+    [TestMethod]
+    public void CompressBad_ApproachIIITest()
+    {
+        // Arrange
+        string str = "aabcccccaaa";
+
+        // Act
+        string compressedString = _stringCompressor.CompressBad_ApproachIII(str);
+
+        // Assert
+        Assert.AreEqual("a2b1c5a3", compressedString);
     }
 }
