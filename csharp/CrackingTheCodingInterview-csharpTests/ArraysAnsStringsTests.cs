@@ -7,11 +7,13 @@ public class ArraysAnsStringsTests
 {
     private UniqueChars _uniqueCharsChecker;
     private PermutationChecker _permutationChecker;
+    private Urlify _urlify;
 
     public ArraysAnsStringsTests()
     {
         _uniqueCharsChecker = new UniqueChars();    
         _permutationChecker = new PermutationChecker();
+        _urlify = new Urlify();
     }
 
     [TestMethod]
@@ -77,5 +79,19 @@ public class ArraysAnsStringsTests
 
         // Assert
         Assert.IsTrue(arePermutations);
+    }
+
+    [TestMethod]
+    public void ReplaceSpaces_ApproachITest()
+    {
+        // Arrange
+        char[] str = ['M', 'r', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h', ' ', ' ', ' ', ' '];
+        int trueLength = 13;
+
+        // Act
+        _urlify.ReplaceSpaces_ApproachI(str, trueLength);
+
+        // Assert
+        Assert.AreEqual("Mr%20John%20Smith", string.Join("", str));
     }
 }
