@@ -4,7 +4,7 @@
     1.1 Is Unique: Implement an algorithm to determine if a string has all unique characters. 
         What if you cannot use additional data structures?
 */
-public class IsUnique
+public class UniqueChars
 {
     /*
         Time: O(1), since the loop will never go beyond 128
