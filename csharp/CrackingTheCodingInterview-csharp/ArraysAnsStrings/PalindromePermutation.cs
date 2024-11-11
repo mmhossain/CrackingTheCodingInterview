@@ -67,7 +67,7 @@ public class PalindromePermutation
 
     /*
         Time: O(n)
-        Space: O(n)
+        Space: O(1)
             n = phrase.Length
     */
     public bool IsPermutationOfPalindrome_ApproachIII(string phrase)
