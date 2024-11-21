@@ -7,11 +7,13 @@ public class LinkedListsTests
 {
     private readonly DeleteSListNode _deleteSListNode;
     private readonly RemoveDuplicates _removeDuplicates;
+    private readonly KthToLastNode _kthToLastNode;
 
     public LinkedListsTests()
     {
         _deleteSListNode = new DeleteSListNode();
         _removeDuplicates = new RemoveDuplicates();
+        _kthToLastNode = new KthToLastNode();
     }
 
     [TestMethod]
@@ -90,5 +92,67 @@ public class LinkedListsTests
         Assert.AreEqual(3, head.Next.Next.Value);
         Assert.AreEqual(4, head.Next.Next.Next.Value);
         Assert.AreEqual(5, head.Next.Next.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void KthToLast_ApproachITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(1)
+        {
+            Next = new SListNode(2)
+            {
+                Next = new SListNode(2)
+                {
+                    Next = new SListNode(3)
+                    {
+                        Next = new SListNode(4)
+                        {
+                            Next = new SListNode(4)
+                            {
+                                Next = new SListNode(5)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Act
+        SListNode node  = _kthToLastNode.KthToLast_ApproachI(head, 2);
+
+        // Assert
+        Assert.AreEqual(4, node.Value);
+    }
+
+    [TestMethod]
+    public void KthToLast_ApproachIITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(1)
+        {
+            Next = new SListNode(2)
+            {
+                Next = new SListNode(2)
+                {
+                    Next = new SListNode(3)
+                    {
+                        Next = new SListNode(4)
+                        {
+                            Next = new SListNode(4)
+                            {
+                                Next = new SListNode(5)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Act
+        SListNode node = _kthToLastNode.KthToLast_ApproachII(head, 2);
+
+        // Assert
+        Assert.AreEqual(4, node.Value);
     }
 }
