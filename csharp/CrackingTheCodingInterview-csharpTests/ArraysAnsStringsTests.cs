@@ -11,6 +11,7 @@ public class ArraysAnsStringsTests
     private PalindromePermutation _palindromePermutation;
     private OneAway _oneAway;
     private StringCompressor _stringCompressor;
+    private MatrixRotator _matrixRotator;
 
     public ArraysAnsStringsTests()
     {
@@ -20,6 +21,7 @@ public class ArraysAnsStringsTests
         _palindromePermutation = new PalindromePermutation();
         _oneAway = new OneAway();
         _stringCompressor = new StringCompressor();
+        _matrixRotator = new MatrixRotator();
     }
 
     [TestMethod]
@@ -203,5 +205,49 @@ public class ArraysAnsStringsTests
 
         // Assert
         Assert.AreEqual("a2b1c5a3", compressedString);
+    }
+
+    [TestMethod]
+    public void RotateMatrixITest()
+    {
+        // Arrange
+        int[][] matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        // Act
+        bool result = _matrixRotator.Rotate_ApproachI(matrix);
+
+        // Assert
+        Assert.IsTrue(result);
+        Assert.AreEqual("13,9,5,1", string.Join(",", matrix[0]));
+        Assert.AreEqual("14,10,6,2", string.Join(",", matrix[1]));
+        Assert.AreEqual("15,11,7,3", string.Join(",", matrix[2]));
+        Assert.AreEqual("16,12,8,4", string.Join(",", matrix[3]));
+    }
+
+    [TestMethod]
+    public void RotateMatrixIITest()
+    {
+        // Arrange
+        int[][] matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        // Act
+        bool result = _matrixRotator.Rotate_ApproachII(matrix);
+
+        // Assert
+        Assert.IsTrue(result);
+        Assert.AreEqual("13,9,5,1", string.Join(",", matrix[0]));
+        Assert.AreEqual("14,10,6,2", string.Join(",", matrix[1]));
+        Assert.AreEqual("15,11,7,3", string.Join(",", matrix[2]));
+        Assert.AreEqual("16,12,8,4", string.Join(",", matrix[3]));
     }
 }
