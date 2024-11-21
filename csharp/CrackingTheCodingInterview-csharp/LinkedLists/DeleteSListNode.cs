@@ -2,6 +2,11 @@
 
 public class DeleteSListNode
 {
+    /*
+        Time: O(n)
+        Space: O(1)
+            n = number of nodes in the linked list
+    */
     public SListNode DeleteNode(SListNode head, int val)
     {
         SListNode current = head;
