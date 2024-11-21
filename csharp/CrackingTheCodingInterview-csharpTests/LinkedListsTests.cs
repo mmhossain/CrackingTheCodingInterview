@@ -10,6 +10,7 @@ public class LinkedListsTests
     private readonly KthToLastNode _kthToLastNode;
     private readonly DeleteMiddleNode _deleteMiddleNode;
     private readonly PartitionList _partitionList;
+    private readonly SumLists _sumLists;
 
     public LinkedListsTests()
     {
@@ -18,6 +19,7 @@ public class LinkedListsTests
         _kthToLastNode = new KthToLastNode();
         _deleteMiddleNode = new DeleteMiddleNode();
         _partitionList = new PartitionList();
+        _sumLists = new SumLists();
     }
 
     [TestMethod]
@@ -271,5 +273,63 @@ public class LinkedListsTests
         Assert.AreEqual(8, updatedHead.Next.Next.Next.Next.Value);
         Assert.AreEqual(5, updatedHead.Next.Next.Next.Next.Next.Value);
         Assert.AreEqual(10, updatedHead.Next.Next.Next.Next.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void SumLists_ApproachITest()
+    {
+        // Arrange
+        SListNode l1 = new SListNode(7)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(6)
+            }
+        };
+
+        SListNode l2 = new SListNode(5)
+        {
+            Next = new SListNode(9)
+            {
+                Next = new SListNode(2)
+            }
+        };
+
+        // Act
+        SListNode result = _sumLists.AddLists_ApproachI(l1, l2, 0);
+
+        // Assert
+        Assert.AreEqual(2, result.Value);
+        Assert.AreEqual(1, result.Next.Value);
+        Assert.AreEqual(9, result.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void SumLists_ApproachIITest()
+    {
+        // Arrange
+        SListNode l1 = new SListNode(6)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(7)
+            }
+        };
+
+        SListNode l2 = new SListNode(2)
+        {
+            Next = new SListNode(9)
+            {
+                Next = new SListNode(5)
+            }
+        };
+
+        // Act
+        SListNode result = _sumLists.AddLists_ApproachII(l1, l2);
+
+        // Assert
+        Assert.AreEqual(9, result.Value);
+        Assert.AreEqual(1, result.Next.Value);
+        Assert.AreEqual(2, result.Next.Next.Value);
     }
 }
