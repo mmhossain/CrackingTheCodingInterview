@@ -1,4 +1,4 @@
-﻿namespace CrackingTheCodingInterview_csharp.ArraysAnsStrings;
+﻿namespace CrackingTheCodingInterview_csharp.ArraysAndStrings;
 
 /*
     1.5 One Away: There are three types of edits that can be performed on strings: insert a character,

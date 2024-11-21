@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CrackingTheCodingInterview_csharp.ArraysAnsStrings;
+namespace CrackingTheCodingInterview_csharp.ArraysAndStrings;
 
 /*
     1.6 String Compression: Implement a method to perform basic string compression using the counts

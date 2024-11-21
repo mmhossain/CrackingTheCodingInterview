@@ -1,4 +1,4 @@
-﻿namespace CrackingTheCodingInterview_csharp.ArraysAnsStrings;
+﻿namespace CrackingTheCodingInterview_csharp.ArraysAndStrings;
 
 /*
     1.7 Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 

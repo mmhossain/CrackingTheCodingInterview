@@ -1,4 +1,4 @@
-﻿namespace CrackingTheCodingInterview_csharp.ArraysAnsStrings;
+﻿namespace CrackingTheCodingInterview_csharp.ArraysAndStrings;
 
 /*
     1.9 String Rotation: Assume you have a method i 5Su b 5 tr ing which checks if one word is a 

@@ -1,4 +1,4 @@
-﻿using CrackingTheCodingInterview_csharp.ArraysAnsStrings;
+﻿using CrackingTheCodingInterview_csharp.ArraysAndStrings;
 
 namespace CrackingTheCodingInterview_csharpTests;
 
