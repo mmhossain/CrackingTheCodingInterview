@@ -5,13 +5,14 @@ namespace CrackingTheCodingInterview_csharpTests;
 [TestClass]
 public class ArraysAnsStringsTests
 {
-    private UniqueChars _uniqueCharsChecker;
-    private PermutationChecker _permutationChecker;
-    private Urlify _urlify;
-    private PalindromePermutation _palindromePermutation;
-    private OneAway _oneAway;
-    private StringCompressor _stringCompressor;
-    private MatrixRotator _matrixRotator;
+    private readonly UniqueChars _uniqueCharsChecker;
+    private readonly PermutationChecker _permutationChecker;
+    private readonly Urlify _urlify;
+    private readonly PalindromePermutation _palindromePermutation;
+    private readonly OneAway _oneAway;
+    private readonly StringCompressor _stringCompressor;
+    private readonly MatrixRotator _matrixRotator;
+    private readonly ZeroMatrix _zeroMatrix;
 
     public ArraysAnsStringsTests()
     {
@@ -22,6 +23,7 @@ public class ArraysAnsStringsTests
         _oneAway = new OneAway();
         _stringCompressor = new StringCompressor();
         _matrixRotator = new MatrixRotator();
+        _zeroMatrix = new ZeroMatrix();
     }
 
     [TestMethod]
@@ -208,7 +210,7 @@ public class ArraysAnsStringsTests
     }
 
     [TestMethod]
-    public void RotateMatrixITest()
+    public void RotateMatrix_ApproachITest()
     {
         // Arrange
         int[][] matrix = [
@@ -230,7 +232,7 @@ public class ArraysAnsStringsTests
     }
 
     [TestMethod]
-    public void RotateMatrixIITest()
+    public void RotateMatrix_ApproachIITest()
     {
         // Arrange
         int[][] matrix = [
@@ -249,5 +251,43 @@ public class ArraysAnsStringsTests
         Assert.AreEqual("14,10,6,2", string.Join(",", matrix[1]));
         Assert.AreEqual("15,11,7,3", string.Join(",", matrix[2]));
         Assert.AreEqual("16,12,8,4", string.Join(",", matrix[3]));
+    }
+
+    [TestMethod]
+    public void ZeroMatrix_ApproachITest()
+    {
+        // Arrange
+        int[][] matrix = [
+            [1, 1, 1],
+            [1, 0, 1],
+            [1, 1, 1]
+        ];
+
+        // Act
+        _zeroMatrix.SetZeros_ApproachI(matrix);
+
+        // Assert
+        Assert.AreEqual("1,0,1", string.Join(",", matrix[0]));
+        Assert.AreEqual("0,0,0", string.Join(",", matrix[1]));
+        Assert.AreEqual("1,0,1", string.Join(",", matrix[2]));
+    }
+
+    [TestMethod]
+    public void ZeroMatrix_ApproachIITest()
+    {
+        // Arrange
+        int[][] matrix = [
+            [1, 1, 1],
+            [1, 0, 1],
+            [1, 1, 1]
+        ];
+
+        // Act
+        _zeroMatrix.SetZeros_ApproachII(matrix);
+
+        // Assert
+        Assert.AreEqual("1,0,1", string.Join(",", matrix[0]));
+        Assert.AreEqual("0,0,0", string.Join(",", matrix[1]));
+        Assert.AreEqual("1,0,1", string.Join(",", matrix[2]));
     }
 }
