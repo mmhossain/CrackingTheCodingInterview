@@ -9,6 +9,7 @@ public class LinkedListsTests
     private readonly RemoveDuplicates _removeDuplicates;
     private readonly KthToLastNode _kthToLastNode;
     private readonly DeleteMiddleNode _deleteMiddleNode;
+    private readonly PartitionList _partitionList;
 
     public LinkedListsTests()
     {
@@ -16,6 +17,7 @@ public class LinkedListsTests
         _removeDuplicates = new RemoveDuplicates();
         _kthToLastNode = new KthToLastNode();
         _deleteMiddleNode = new DeleteMiddleNode();
+        _partitionList = new PartitionList();
     }
 
     [TestMethod]
@@ -195,5 +197,79 @@ public class LinkedListsTests
         Assert.AreEqual(4, head.Next.Next.Next.Value);
         Assert.AreEqual(4, head.Next.Next.Next.Next.Value);
         Assert.AreEqual(5, head.Next.Next.Next.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void Partition_ApproachITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(3)
+        {
+            Next = new SListNode(5)
+            {
+                Next = new SListNode(8)
+                {
+                    Next = new SListNode(5)
+                    {
+                        Next = new SListNode(10)
+                        {
+                            Next = new SListNode(2)
+                            {
+                                Next = new SListNode(1)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Act
+        SListNode updatedHead = _partitionList.Partition_ApproachI(head, 5);
+
+        // Assert
+        Assert.AreEqual(3, updatedHead.Value);
+        Assert.AreEqual(2, updatedHead.Next.Value);
+        Assert.AreEqual(1, updatedHead.Next.Next.Value);
+        Assert.AreEqual(5, updatedHead.Next.Next.Next.Value);
+        Assert.AreEqual(8, updatedHead.Next.Next.Next.Next.Value);
+        Assert.AreEqual(5, updatedHead.Next.Next.Next.Next.Next.Value);
+        Assert.AreEqual(10, updatedHead.Next.Next.Next.Next.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void Partition_ApproachIITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(3)
+        {
+            Next = new SListNode(5)
+            {
+                Next = new SListNode(8)
+                {
+                    Next = new SListNode(5)
+                    {
+                        Next = new SListNode(10)
+                        {
+                            Next = new SListNode(2)
+                            {
+                                Next = new SListNode(1)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Act
+        SListNode updatedHead = _partitionList.Partition_ApproachII(head, 5);
+
+        // Assert
+        Assert.AreEqual(1, updatedHead.Value);
+        Assert.AreEqual(2, updatedHead.Next.Value);
+        Assert.AreEqual(3, updatedHead.Next.Next.Value);
+        Assert.AreEqual(5, updatedHead.Next.Next.Next.Value);
+        Assert.AreEqual(8, updatedHead.Next.Next.Next.Next.Value);
+        Assert.AreEqual(5, updatedHead.Next.Next.Next.Next.Next.Value);
+        Assert.AreEqual(10, updatedHead.Next.Next.Next.Next.Next.Next.Value);
     }
 }
