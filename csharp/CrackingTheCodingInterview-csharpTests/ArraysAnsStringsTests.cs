@@ -13,6 +13,7 @@ public class ArraysAnsStringsTests
     private readonly StringCompressor _stringCompressor;
     private readonly MatrixRotator _matrixRotator;
     private readonly ZeroMatrix _zeroMatrix;
+    private readonly StringRotation _stringRotation;
 
     public ArraysAnsStringsTests()
     {
@@ -24,6 +25,7 @@ public class ArraysAnsStringsTests
         _stringCompressor = new StringCompressor();
         _matrixRotator = new MatrixRotator();
         _zeroMatrix = new ZeroMatrix();
+        _stringRotation = new StringRotation();
     }
 
     [TestMethod]
@@ -289,5 +291,19 @@ public class ArraysAnsStringsTests
         Assert.AreEqual("1,0,1", string.Join(",", matrix[0]));
         Assert.AreEqual("0,0,0", string.Join(",", matrix[1]));
         Assert.AreEqual("1,0,1", string.Join(",", matrix[2]));
+    }
+
+    [TestMethod]
+    public void StringRotationTest()
+    {
+        // Arrange
+        string s1 = "waterbottle";
+        string s2 = "bottlewater";
+
+        // Act
+        bool result = _stringRotation.IsRotation(s1, s2);
+
+        // Assert
+        Assert.IsTrue(result);
     }
 }
