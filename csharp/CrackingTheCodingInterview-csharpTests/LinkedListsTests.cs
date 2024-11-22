@@ -12,6 +12,7 @@ public class LinkedListsTests
     private readonly PartitionList _partitionList;
     private readonly SumLists _sumLists;
     private readonly PalindromeList _palindromeList;
+    private readonly Intersection _intersection;
 
     public LinkedListsTests()
     {
@@ -22,6 +23,7 @@ public class LinkedListsTests
         _partitionList = new PartitionList();
         _sumLists = new SumLists();
         _palindromeList = new PalindromeList();
+        _intersection = new Intersection();
     }
 
     [TestMethod]
@@ -383,5 +385,75 @@ public class LinkedListsTests
 
         // Assert
         Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void FindIntersection_ApproachITest()
+    {
+        // Arrange
+        SListNode node7 = new SListNode(7) { Next = new SListNode(2) { Next = new SListNode(1) } };
+
+        SListNode list1 = new SListNode(3)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(5)
+                {
+                    Next = new SListNode(9)
+                    {
+                        Next = node7
+                    }
+                }
+            }
+        };
+
+        SListNode list2 = new SListNode(4)
+        {
+            Next = new SListNode(6)
+            {
+                Next = node7
+            }
+        };
+
+        // Act
+        SListNode result = _intersection.FindIntersection_ApproachI(list1, list2);
+
+        // Assert
+        Assert.AreEqual(7, result.Value);
+    }
+
+    [TestMethod]
+    public void FindIntersection_ApproachIITest()
+    {
+        // Arrange
+        SListNode node7 = new SListNode(7) { Next = new SListNode(2) { Next = new SListNode(1) } };
+
+        SListNode list1 = new SListNode(3)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(5)
+                {
+                    Next = new SListNode(9)
+                    {
+                        Next = node7
+                    }
+                }
+            }
+        };
+
+        SListNode list2 = new SListNode(4)
+        {
+            Next = new SListNode(6)
+            {
+                Next = node7
+            }
+        };
+
+        // Act
+        SListNode result = _intersection.FindIntersection_ApproachII(list1, list2);
+
+        // Assert
+        Assert.AreEqual(7, result.Value);
     }
 }
