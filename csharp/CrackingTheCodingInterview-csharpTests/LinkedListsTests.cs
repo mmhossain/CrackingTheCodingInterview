@@ -13,6 +13,7 @@ public class LinkedListsTests
     private readonly SumLists _sumLists;
     private readonly PalindromeList _palindromeList;
     private readonly Intersection _intersection;
+    private readonly LoopDetection _loopDetection;
 
     public LinkedListsTests()
     {
@@ -24,6 +25,7 @@ public class LinkedListsTests
         _sumLists = new SumLists();
         _palindromeList = new PalindromeList();
         _intersection = new Intersection();
+        _loopDetection = new LoopDetection();
     }
 
     [TestMethod]
@@ -455,5 +457,65 @@ public class LinkedListsTests
 
         // Assert
         Assert.AreEqual(7, result.Value);
+    }
+
+    [TestMethod]
+    public void FindBeginning_ApproachITest()
+    {
+        // Arrange
+        SListNode node7 = new SListNode(7) { Next = new SListNode(2) { Next = new SListNode(1) } };
+        SListNode node1 = new SListNode(1)
+        {
+            Next = new SListNode(5)
+            {
+                Next = new SListNode(9)
+                {
+                    Next = node7
+                }
+            }
+        };
+
+        SListNode head = new SListNode(3)
+        {
+            Next = node1
+        };
+
+        node7.Next = node1;
+
+        // Act
+        SListNode result = _loopDetection.FindBeginning_ApproachI(head);
+
+        // Assert
+        Assert.AreEqual(1, result.Value);
+    }
+
+    [TestMethod]
+    public void FindBeginning_ApproachIITest()
+    {
+        // Arrange
+        SListNode node7 = new SListNode(7) { Next = new SListNode(2) { Next = new SListNode(1) } };
+        SListNode node1 = new SListNode(1)
+        {
+            Next = new SListNode(5)
+            {
+                Next = new SListNode(9)
+                {
+                    Next = node7
+                }
+            }
+        };
+
+        SListNode head = new SListNode(3)
+        {
+            Next = node1
+        };
+
+        node7.Next = node1;
+
+        // Act
+        SListNode result = _loopDetection.FindBeginning_ApproachII(head);
+
+        // Assert
+        Assert.AreEqual(1, result.Value);
     }
 }
