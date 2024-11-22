@@ -11,6 +11,7 @@ public class LinkedListsTests
     private readonly DeleteMiddleNode _deleteMiddleNode;
     private readonly PartitionList _partitionList;
     private readonly SumLists _sumLists;
+    private readonly PalindromeList _palindromeList;
 
     public LinkedListsTests()
     {
@@ -20,6 +21,7 @@ public class LinkedListsTests
         _deleteMiddleNode = new DeleteMiddleNode();
         _partitionList = new PartitionList();
         _sumLists = new SumLists();
+        _palindromeList = new PalindromeList();
     }
 
     [TestMethod]
@@ -331,5 +333,55 @@ public class LinkedListsTests
         Assert.AreEqual(9, result.Value);
         Assert.AreEqual(1, result.Next.Value);
         Assert.AreEqual(2, result.Next.Next.Value);
+    }
+
+    [TestMethod]
+    public void IsPalindrome_ApproachITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(0)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(2)
+                {
+                    Next = new SListNode(1)
+                    {
+                        Next = new SListNode(0)
+                    }
+                }
+            }
+        };
+
+        // Act
+        bool result = _palindromeList.IsPalindrome_ApproachI(head);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void IsPalindrome_ApproachIITest()
+    {
+        // Arrange
+        SListNode head = new SListNode(0)
+        {
+            Next = new SListNode(1)
+            {
+                Next = new SListNode(2)
+                {
+                    Next = new SListNode(1)
+                    {
+                        Next = new SListNode(0)
+                    }
+                }
+            }
+        };
+
+        // Act
+        bool result = _palindromeList.IsPalindrome_ApproachII(head);
+
+        // Assert
+        Assert.IsTrue(result);
     }
 }
